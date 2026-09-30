@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc", "jsx-a11y"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }],
+
+    "no-unused-vars": "error",
+
+    "react/exhaustive-deps": "off",
+    "react/no-array-index-key": "off",
+
+    "typescript/no-empty-interface": "off",
+    "typescript/consistent-type-imports": "off",
+    "typescript/no-non-null-assertion": "off",
+    "typescript/no-banned-types": "off",
+
+    "jsx-a11y/svg-has-title": "off",
+    "jsx-a11y/button-has-type": "off",
+
+    "func-style": "off",
+    "react/jsx-max-depth": "off"
+  },
+  "ignorePatterns": ["dist/**", "node_modules/**", ".next/**"]
+}
