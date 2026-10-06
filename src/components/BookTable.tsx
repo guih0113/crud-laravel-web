@@ -69,76 +69,81 @@ export function BookTable() {
     <>
       <div className="table-scroll">
         <table className="book-table">
-        <thead>
-          <tr>
-            <th>Livro</th>
-            <th>Autor</th>
-            <th>Gênero</th>
-            <th>Páginas</th>
-            <th>Avaliação</th>
-            <th>Lançamento</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {isLoading && (
-            <>
-              <SkeletonRow />
-              <SkeletonRow />
-            </>
-          )}
-          {!isLoading && error && (
+          <thead>
             <tr>
-              <td className="table-message table-error" colSpan={7}>
-                {error}
-              </td>
+              <th>Livro</th>
+              <th>Autor</th>
+              <th>Gênero</th>
+              <th>Páginas</th>
+              <th>Avaliação</th>
+              <th>Lançamento</th>
+              <th>Ações</th>
             </tr>
-          )}
-          {!isLoading && !error && books.length === 0 && (
-            <tr>
-              <td className="table-message" colSpan={7}>
-                Nenhum livro encontrado.
-              </td>
-            </tr>
-          )}
-          {books.map((book) => (
-            <tr key={book.title}>
-              <td>
-                <div className="book-title">
-                  <Cover book={book} />
-                  <strong>{book.title}</strong>
-                </div>
-              </td>
-              <td>{book.author}</td>
-              <td>{book.genre}</td>
-              <td>{book.pages}</td>
-              <td>
-                <Rating value={book.rating} />
-              </td>
-              <td>{book.releaseDate}</td>
-              <td>
-                <div className="row-actions">
-                  <button type="button" aria-label={`Visualizar ${book.title}`}>
-                    <Icon name="eye" size={17} />
-                  </button>
-                  <button type="button" aria-label={`Editar ${book.title}`}>
-                    <Icon name="edit" size={17} />
-                  </button>
-                  <button
-                    className="delete-action"
-                    type="button"
-                    aria-label={`Excluir ${book.title}`}
-                  >
-                    <Icon name="trash" size={17} />
-                  </button>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+          </thead>
+          <tbody>
+            {isLoading && (
+              <>
+                <SkeletonRow />
+                <SkeletonRow />
+              </>
+            )}
+            {!isLoading && error && (
+              <tr>
+                <td className="table-message table-error" colSpan={7}>
+                  {error}
+                </td>
+              </tr>
+            )}
+            {!isLoading && !error && books.length === 0 && (
+              <tr>
+                <td className="table-message" colSpan={7}>
+                  Nenhum livro encontrado.
+                </td>
+              </tr>
+            )}
+            {books.map((book) => (
+              <tr key={book.title}>
+                <td>
+                  <div className="book-title">
+                    <Cover book={book} />
+                    <strong>{book.title}</strong>
+                  </div>
+                </td>
+                <td>{book.author}</td>
+                <td>{book.genre}</td>
+                <td>{book.pages}</td>
+                <td>
+                  <Rating value={book.rating} />
+                </td>
+                <td>{book.releaseDate}</td>
+                <td>
+                  <div className="row-actions">
+                    <button type="button" aria-label={`Visualizar ${book.title}`}>
+                      <Icon name="eye" size={17} />
+                    </button>
+                    <button type="button" aria-label={`Editar ${book.title}`}>
+                      <Icon name="edit" size={17} />
+                    </button>
+                    <button
+                      className="delete-action"
+                      type="button"
+                      aria-label={`Excluir ${book.title}`}
+                    >
+                      <Icon name="trash" size={17} />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
-      <Pagination currentPage={currentPage} totalPages={totalPages} disabled={isLoading} onPageChange={handlePageChange} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        disabled={isLoading}
+        onPageChange={handlePageChange}
+      />
     </>
   )
 }
@@ -146,13 +151,30 @@ export function BookTable() {
 function SkeletonRow() {
   return (
     <tr className="skeleton-row">
-      <td aria-label="Carregando livro"><div className="book-title"><span className="skeleton-cover" /><span className="skeleton-line skeleton-title" /></div></td>
-      <td aria-label="Carregando autor"><span className="skeleton-line" /></td>
-      <td aria-label="Carregando gênero"><span className="skeleton-line skeleton-short" /></td>
-      <td aria-label="Carregando páginas"><span className="skeleton-line skeleton-number" /></td>
-      <td aria-label="Carregando avaliação"><span className="skeleton-line skeleton-rating" /></td>
-      <td aria-label="Carregando lançamento"><span className="skeleton-line skeleton-date" /></td>
-      <td aria-label="Carregando ações"><span className="skeleton-line skeleton-actions" /></td>
+      <td aria-label="Carregando livro">
+        <div className="book-title">
+          <span className="skeleton-cover" />
+          <span className="skeleton-line skeleton-title" />
+        </div>
+      </td>
+      <td aria-label="Carregando autor">
+        <span className="skeleton-line" />
+      </td>
+      <td aria-label="Carregando gênero">
+        <span className="skeleton-line skeleton-short" />
+      </td>
+      <td aria-label="Carregando páginas">
+        <span className="skeleton-line skeleton-number" />
+      </td>
+      <td aria-label="Carregando avaliação">
+        <span className="skeleton-line skeleton-rating" />
+      </td>
+      <td aria-label="Carregando lançamento">
+        <span className="skeleton-line skeleton-date" />
+      </td>
+      <td aria-label="Carregando ações">
+        <span className="skeleton-line skeleton-actions" />
+      </td>
     </tr>
   )
 }

@@ -189,15 +189,31 @@ button {
   width: 30px;
   height: 41px;
 }
-.skeleton-title { width: 90px; }
-.skeleton-short { width: 58px; }
-.skeleton-number { width: 28px; }
-.skeleton-rating { width: 68px; }
-.skeleton-date { width: 76px; }
-.skeleton-actions { width: 72px; }
+.skeleton-title {
+  width: 90px;
+}
+.skeleton-short {
+  width: 58px;
+}
+.skeleton-number {
+  width: 28px;
+}
+.skeleton-rating {
+  width: 68px;
+}
+.skeleton-date {
+  width: 76px;
+}
+.skeleton-actions {
+  width: 72px;
+}
 @keyframes skeleton-loading {
-  from { background-position: 100% 0; }
-  to { background-position: -100% 0; }
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
 }
 .book-title {
   display: flex;
