@@ -1,1 +1,338 @@
-@import "tailwindcss";
+.table-message {
+  height: 180px !important;
+  color: #718287 !important;
+  text-align: center;
+}
+.table-error {
+  color: #c25258 !important;
+}
+.cover-default {
+  background: linear-gradient(145deg, #527b75, #183b3c);
+  color: #f1dfaa;
+}
+@import 'tailwindcss';
+
+:root {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #142b38;
+  background: #f7f8f5;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(circle at 90% 0%, #eef3ef 0, transparent 32rem), #f8f9f6;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+.app-shell {
+  min-height: 100vh;
+  padding: 42px 24px 38px;
+}
+.library-page {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+.library-header h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.8px;
+  line-height: 1;
+}
+.library-header p {
+  margin: 0;
+  color: #6b7d83;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.new-book-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 7px;
+  padding: 12px 17px;
+  color: #f9fbf8;
+  background: #123f40;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 5px 12px #123f4024;
+}
+.toolbar {
+  display: grid;
+  grid-template-columns: minmax(250px, 1.45fr) minmax(160px, 0.9fr) minmax(145px, 0.8fr) auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.search-field,
+.select-field {
+  min-height: 40px;
+  border: 1px solid #dbe1df;
+  border-radius: 6px;
+  background: #fff;
+  color: #60747b;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 11px;
+  color: #7c8e92;
+}
+.search-field input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #16333d;
+  font-size: 12px;
+}
+.search-field input::placeholder {
+  color: #91a0a4;
+}
+.select-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  text-align: left;
+}
+.select-field:hover,
+.search-field:focus-within {
+  border-color: #9eb5b0;
+}
+.book-count {
+  justify-self: end;
+  color: #64777d;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid #e1e6e4;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 4px 15px #173a3210;
+}
+.book-table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+.book-table th {
+  height: 37px;
+  color: #405a63;
+  background: #f4f6f3;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: left;
+}
+.book-table th,
+.book-table td {
+  padding: 0 10px;
+  border-bottom: 1px solid #edf0ee;
+  white-space: nowrap;
+}
+.book-table th:first-child,
+.book-table td:first-child {
+  padding-left: 13px;
+}
+.book-table th:last-child,
+.book-table td:last-child {
+  padding-right: 13px;
+}
+.book-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.book-table td {
+  height: 67px;
+  color: #586d75;
+}
+.skeleton-row td {
+  height: 67px;
+}
+.skeleton-line,
+.skeleton-cover {
+  display: block;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #edf1ef 25%, #f8faf8 50%, #edf1ef 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.35s ease-in-out infinite;
+}
+.skeleton-line {
+  width: 82px;
+  height: 10px;
+}
+.skeleton-cover {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 41px;
+}
+.skeleton-title { width: 90px; }
+.skeleton-short { width: 58px; }
+.skeleton-number { width: 28px; }
+.skeleton-rating { width: 68px; }
+.skeleton-date { width: 76px; }
+.skeleton-actions { width: 72px; }
+@keyframes skeleton-loading {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+.book-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 165px;
+  color: #263f49;
+}
+.book-title strong {
+  font-size: 12px;
+}
+.book-cover {
+  display: flex;
+  flex: 0 0 30px;
+  height: 41px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 2px;
+  color: #f6ecd1;
+  box-shadow: 1px 2px 4px #12272155;
+  font-family: Georgia, serif;
+  font-size: 5px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+.book-cover span {
+  display: block;
+}
+.cover-hobbit {
+  background: linear-gradient(145deg, #3d591a, #111e12 70%);
+  color: #e8df9d;
+  border: 1px solid #869347;
+}
+.cover-1984 {
+  background: linear-gradient(160deg, #9f171b, #0d0809 78%);
+  color: #ffddbd;
+  font-size: 8px;
+}
+.cover-prince {
+  background: linear-gradient(145deg, #0a6da2, #153f78);
+  color: #ffd269;
+}
+.cover-casmurro {
+  background: linear-gradient(145deg, #452a13, #1d1715);
+  color: #b78c57;
+}
+.cover-animals {
+  background: linear-gradient(145deg, #ef6332, #b11820);
+  color: #ffe4a5;
+  font-size: 4px;
+}
+.cover-dune {
+  background: linear-gradient(145deg, #9c5b19, #160e0a 80%);
+  color: #f6b34c;
+  font-size: 8px;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rating span {
+  color: #e99a20;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+.rating b {
+  color: #3b535b;
+  font-size: 10px;
+  font-weight: 400;
+}
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.row-actions button,
+.pagination button {
+  display: grid;
+  place-items: center;
+  border: 0;
+  color: #6c838b;
+  background: transparent;
+  padding: 0;
+}
+.row-actions button:hover {
+  color: #123f40;
+}
+.row-actions .delete-action {
+  color: #d55e62;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 25px;
+}
+.pagination button {
+  width: 33px;
+  height: 33px;
+  border: 1px solid #e0e6e3;
+  border-radius: 6px;
+  background: #fff;
+  color: #62747b;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+.pagination button:hover,
+.pagination .active-page {
+  border-color: #123f40;
+  color: #fff;
+  background: #123f40;
+}
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 28px 15px;
+  }
+  .library-header {
+    margin-bottom: 22px;
+  }
+  .library-header h1 {
+    font-size: 30px;
+  }
+  .toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+  .search-field {
+    grid-column: 1 / -1;
+  }
+  .book-count {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 3px;
+  }
+}

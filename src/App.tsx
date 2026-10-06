@@ -1,3 +1,15 @@
+import { BookTable } from './components/BookTable'
+import { LibraryHeader } from './components/LibraryHeader'
+import { LibraryToolbar } from './components/LibraryToolbar'
+
 export function App() {
-  return <div className="text-amber-500 text-5xl">Hello World!</div>
+  return (
+    <main className="app-shell">
+      <div className="library-page">
+        <LibraryHeader />
+        <LibraryToolbar />
+        <BookTable />
+      </div>
+    </main>
+  )
 }
