@@ -7,6 +7,7 @@ import { updateBook, type UpdateBookInput } from '../http/update-book'
 import type { Book } from '../types/book'
 import { Icon } from './Icon'
 import { Pagination } from './Pagination'
+import { ViewBookDialog } from './ViewBookDialog'
 import {
   Dialog,
   DialogClose,
@@ -125,9 +126,7 @@ export function BookTable() {
                 <td>{book.releaseDate}</td>
                 <td>
                   <div className="row-actions">
-                    <button type="button" aria-label={`Visualizar ${book.title}`}>
-                      <Icon name="eye" size={17} />
-                    </button>
+                    <ViewBookDialog book={book} />
                     <EditBookDialog book={book} queryClient={queryClient} />
                     <DeleteBookDialog book={book} queryClient={queryClient} />
                   </div>
