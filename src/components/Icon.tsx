@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react'
 
 type IconName =
-  | 'search'
-  | 'chevron-down'
-  | 'sliders'
   | 'eye'
   | 'edit'
   | 'trash'
@@ -13,20 +10,6 @@ type IconName =
 type IconProps = { name: IconName; size?: number }
 
 const paths: Record<IconName, ReactNode> = {
-  search: (
-    <>
-      <circle cx="11" cy="11" r="6.5" />
-      <path d="m16 16 4 4" />
-    </>
-  ),
-  'chevron-down': <path d="m7 10 5 5 5-5" />,
-  sliders: (
-    <>
-      <path d="M4 7h16M4 17h16" />
-      <circle cx="9" cy="7" r="2" fill="currentColor" stroke="none" />
-      <circle cx="15" cy="17" r="2" fill="currentColor" stroke="none" />
-    </>
-  ),
   eye: (
     <>
       <path d="M2.5 12s3.5-5 9.5-5 9.5 5 9.5 5-3.5 5-9.5 5-9.5-5-9.5-5Z" />

@@ -1,26 +1,29 @@
-import { Icon } from './Icon'
+import { useQuery } from '@tanstack/react-query'
+
+import { getBooksQueryOptions } from '../http/get-books'
 
 export function LibraryToolbar() {
+  const booksQuery = useQuery(getBooksQueryOptions(1))
+  const totalBooks = getTotalBooks(booksQuery.data)
+
   return (
     <div className="toolbar">
-      <label className="search-field">
-        <Icon name="search" size={18} />
-        <input
-          type="search"
-          placeholder="Buscar por título ou autor..."
-          aria-label="Buscar por título ou autor"
-        />
-        <Icon name="search" size={16} />
-      </label>
-      <button className="select-field" type="button">
-        <span>Todos os gêneros</span>
-        <Icon name="chevron-down" size={16} />
-      </button>
-      <button className="select-field sort-field" type="button">
-        <span>Ordenar por</span>
-        <Icon name="sliders" size={15} />
-      </button>
-      <strong className="book-count">6 livros cadastrados</strong>
+      <strong className="book-count">
+        {booksQuery.isPending ? 'Carregando...' : `${totalBooks} livros cadastrados`}
+      </strong>
     </div>
   )
+}
+
+function getTotalBooks(payload: unknown): number {
+  if (!payload || typeof payload !== 'object') return 0
+
+  const response = payload as {
+    livros?: {
+      total?: unknown
+    }
+  }
+  const total = Number(response.livros?.total)
+
+  return Number.isFinite(total) && total >= 0 ? total : 0
 }
