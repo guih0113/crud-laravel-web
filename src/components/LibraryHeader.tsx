@@ -1,4 +1,4 @@
-import { Icon } from './Icon'
+import { AddBookDialog } from './AddBookDialog'
 
 export function LibraryHeader() {
   return (
@@ -7,10 +7,7 @@ export function LibraryHeader() {
         <h1>Livros</h1>
         <p>Explore, organize e descubra novas histórias.</p>
       </div>
-      <button className="new-book-button" type="button">
-        <Icon name="plus" size={17} />
-        Novo livro
-      </button>
+      <AddBookDialog />
     </header>
   )
 }
